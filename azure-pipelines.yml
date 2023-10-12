@@ -65,7 +65,7 @@ stages:
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
 
-      
+
 - stage: 'Deploy'
   displayName: 'Deploy the container'
   dependsOn: Build
@@ -77,8 +77,8 @@ stages:
     variables:
     - group: Release
     steps:
-        - task: AzureWebAppContainer@1
-          inputs:
-           appName: $(WebAppName)
-           azureSubscription: 'Resource Manager - Tailspin - Space Game'
-           imageName: $(RegistryName)/$(webRepository):$(build.buildId)
+    - task: AzureWebAppContainer@1
+      inputs:
+       appName: $(WebAppName)
+       azureSubscription: 'raksha'
+       imageName: $(RegistryName)/$(webRepository):$(build.buildId)
